@@ -1,0 +1,3428 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Chapter 4 : Python Learning Group.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "toc_visible": true,
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/PawanRamaMali/PythonCollabSheets/blob/main/Python%20Learning%20Group\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cwpfxilPwYhb"
+      },
+      "source": [
+        "\n",
+        "\n",
+        "# <h1><b><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>WEEKLY ASSESSMENTS for Python Learning Group</u></center></b></h1><br>\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Ics3lbEkwaYO"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "## <h2><center><b>CHAPTER 4</b></center></h2>\n",
+        "<center>  Page 178 to 189</center><br>\n",
+        "<hr>\n",
+        "<b>NOTE : </b> \n",
+        "\n",
+        "*  Please use \"import string\" for functions like string.ascii_lowercase, string.ascii_uppercase, string.printable, etc.\n",
+        "* Please don't forget to use \"import re\" for regex module functions.\n",
+        "* You can use \" \" or empty string for string concatenation to create new strings. \n",
+        "* All counting for even or odd indices start from 0th (zero) index which is included in counting. 0th index is considered as an even index.<br>\n",
+        "<b>EG :</b> In \"Hello\" the even indices are 0,2,4 which are letters H,l,o while odd indices are 1,3 which are letters e,l for \"Hello\".\n",
+        "<hr>\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "N9-bam3rnCDd"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "#  <h1><u><center><b> GROUP-1 (G-1) : </b></center></u></h1>\n",
+        "\n",
+        "\n",
+        "<hr>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_CNFIjjYnI2C"
+      },
+      "source": [
+        "<pre>1.) Count the number of consonants, vowels, digits, spaces and special characters/symbols in an inputted string.\n",
+        "\n",
+        "Eg: Input String : \"hello world 123!\"\n",
+        "Output :\n",
+        "consonants : 7\n",
+        "vowels : 3\n",
+        "digits : 3\n",
+        "spaces : 2\n",
+        "symbols : 1 #exclaimation mark\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wh4xuUU1oITO",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 105
+        },
+        "outputId": "ea483c84-e1c1-408a-a428-33c3432bf848"
+      },
+      "source": [
+        "#Solved by : Pawan Rama Mali (AI01)\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "\n",
+        "\n",
+        "def countCharacterType(str): \n",
+        "  \n",
+        "    # Declare the variable vowels,  \n",
+        "    # consonant, digit and special \n",
+        "    # characters \n",
+        "    vowels = 0\n",
+        "    consonant = 0\n",
+        "    symbols = 0\n",
+        "    digit = 0\n",
+        "    spaces = 0 \n",
+        "  \n",
+        "    # str.length() function to count  \n",
+        "    # number of character in given string. \n",
+        "    for i in range(0, len(str)):  \n",
+        "          \n",
+        "        ch = str[i]  \n",
+        "        if (ch == ' '):\n",
+        "          spaces +=1\n",
+        "        elif ( (ch >= 'a' and ch <= 'z') or \n",
+        "             (ch >= 'A' and ch <= 'Z') ):  \n",
+        "  \n",
+        "            # To handle upper case letters \n",
+        "            ch = ch.lower() \n",
+        "\n",
+        "            if (ch == 'a' or ch == 'e' or ch == 'i' \n",
+        "                        or ch == 'o' or ch == 'u'): \n",
+        "                vowels += 1\n",
+        "            else: \n",
+        "                consonant += 1\n",
+        "          \n",
+        "        elif (ch >= '0' and ch <= '9'): \n",
+        "            digit += 1\n",
+        "        else: \n",
+        "            symbols += 1\n",
+        "    \n",
+        "    print(\"Consonant:\", consonant)      \n",
+        "    print(\"Vowels:\", vowels) \n",
+        "    print(\"Spaces:\", spaces) \n",
+        "    print(\"Digit:\", digit)  \n",
+        "    print(\"Special Character:\", symbols)  \n",
+        "  \n",
+        "  \n",
+        "# Driver function. \n",
+        "str = \"hello world 123!\"\n",
+        "countCharacterType(str)  \n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Consonant: 7\n",
+            "Vowels: 3\n",
+            "Spaces: 2\n",
+            "Digit: 3\n",
+            "Special Character: 1\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-5sdz86J2jbC",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 136
+        },
+        "outputId": "9da22444-6c38-4f30-a1f6-6f3812532ba5"
+      },
+      "source": [
+        "#Alternative Solution by : Saket\n",
+        "\n",
+        "#Code below :\n",
+        "inp = input(\"Enter your string : \")\n",
+        "\n",
+        "vowels = consonants = digits = spaces = symbols = 0\n",
+        "\n",
+        "for i in inp:\n",
+        "  if i.lower() in \"aeiou\":\n",
+        "    vowels+=1\n",
+        "  elif i.isalpha():\n",
+        "    consonants+=1\n",
+        "  elif i.isdigit():\n",
+        "    digits+=1\n",
+        "  elif i.isspace():\n",
+        "    spaces+=1\n",
+        "  else:\n",
+        "    symbols+=1\n",
+        "\n",
+        "print(f\"\\nVowels : {vowels} \\nConsonants : {consonants } \\nDigits : {digits} \\nSpaces : {spaces} \\nSymbols:{symbols}\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter your string : AeIoU Word !2#\n",
+            "\n",
+            "Vowels : 6 \n",
+            "Consonants : 3 \n",
+            "Digits : 1 \n",
+            "Spaces : 2 \n",
+            "Symbols:2\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "K75RTd7JoI1r"
+      },
+      "source": [
+        "<pre>2.) Convert all the even indices of a string inputted by the user to uppercase, if they are lowercase.<br> If they are already uppercase then convert them to lowercase.<br> Let the odd indices remain the same.\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wc4D_9A_obHh",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 53
+        },
+        "outputId": "a39e2ef3-c0b0-415d-eba8-4c936f5d1de3"
+      },
+      "source": [
+        "#Solved by : VINAYA\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "def case_change(word):\n",
+        "    count = 0\n",
+        "    result = ''\n",
+        "    for l in word:\n",
+        "        if count % 2 == 0:\n",
+        "            if l.isupper():\n",
+        "                result += l.lower()\n",
+        "            else:\n",
+        "                result += l.upper()\n",
+        "        else:\n",
+        "            result += l\n",
+        "        count += 1\n",
+        "    return result\n",
+        "str=input('Enter word:')\n",
+        "case_change(str)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter word:reva UNIVERSITY\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'ReVa UnIvErSiTy'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "rTic1qJFob4Q"
+      },
+      "source": [
+        "<pre>3.) Replace all even indices that are vowels with \"#\" symbol and odd indices<br>that are not vowels to \"$\" symbol for any inputted string."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "viFxafqtozIs",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        },
+        "outputId": "878370d5-cb60-42d7-9b0a-52f3febd4a6e"
+      },
+      "source": [
+        "#Solved by :  Pawan Rama Mali (AI01)\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "\n",
+        "str = input(\"Enter your string : \")\n",
+        "\n",
+        "for i in str:\n",
+        "  if i in \"aeiou\":\n",
+        "    print(str.index(i))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter your string : Pawan\n",
+            "1\n",
+            "1\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "149E1ucR_ktI",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 53
+        },
+        "outputId": "cccca52b-4417-46b5-ef17-0874ad8d70e3"
+      },
+      "source": [
+        "# Alternate solution: Rajanna A01\n",
+        "\n",
+        "# Code/Answer below:\n",
+        "x = input(\"Enter the string : \")\n",
+        "\n",
+        "count = 1\n",
+        "y = ''\n",
+        "\n",
+        "for i in x:\n",
+        "    if count % 2 ==0:\n",
+        "        if i in \"aeiouAEIOU\":\n",
+        "            y = y+\"#\"\n",
+        "        else:\n",
+        "            y = y+i\n",
+        "    else:\n",
+        "        if i in \"aeiouAEIOU\":\n",
+        "            y = y+i\n",
+        "        else:\n",
+        "            y = y+\"$\"\n",
+        "            \n",
+        "    count +=1\n",
+        "    \n",
+        "print(y)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter the string : TAIBA\n",
+            "$#IBA\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "2sqk2FQ7Uiqa",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 53
+        },
+        "outputId": "ce91a822-4a73-4d0d-8318-f69c821d4432"
+      },
+      "source": [
+        "# Alternate solution by:Taiba Naz\n",
+        "\n",
+        "def fun1(word):\n",
+        "  count=0\n",
+        "  result='' \n",
+        "  for i in word:\n",
+        "    if count%2==0 and i in 'aeiou':\n",
+        "      result+='#'\n",
+        "    elif count%2!=0 and i not in 'aeiou': \n",
+        "      result+='$'\n",
+        "    else:\n",
+        "      result+=i  \n",
+        "    \n",
+        "    count+=1\n",
+        "  return result\n",
+        "\n",
+        "string=input(\"Enter any string:\").lower()\n",
+        "fun1(string)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter any string:TAIBA\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'ta#$#'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "rEM00YEBeKbX",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 72
+        },
+        "outputId": "c1e6341c-0518-4708-ea70-168d6c405085"
+      },
+      "source": [
+        "#Alternate solution by : Saket\n",
+        "\n",
+        "def func(w):\n",
+        "  new = \"\"\n",
+        "  for i in range(len(w)):\n",
+        "    if i%2==0 and w[i].lower() in \"aeiou\":\n",
+        "      new+=\"#\"\n",
+        "    elif i%2!=0 and w[i].lower() not in \"aeiou\":\n",
+        "      new+=\"$\"\n",
+        "    else:\n",
+        "      new+=w[i]\n",
+        "  print(f\"The old string : {w}\\nThe new string : {new}\")\n",
+        "\n",
+        "func(input(\"Enter the string : \"))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter the string : TAIba\n",
+            "The old string : TAIba\n",
+            "The new string : TA#$#\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Cugo6UHyozql"
+      },
+      "source": [
+        "<pre>4.) Count all the uppercase and lowercase letters in an inputted string.\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1CVSax1Co7fz",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 89
+        },
+        "outputId": "6c3276ab-6a0c-4e07-ff10-737042ba1ca5"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "def func2(word):\n",
+        "  count_upper=count_lower=0\n",
+        "  a='ABCDEFGHIJKLMNOPQRSTUVWXYZ' \n",
+        "  b='abcdefghijklmnopqrstuvwxyz'\n",
+        "  for i in word:\n",
+        "    if i in a:\n",
+        "        count_upper+=1\n",
+        "    elif i in b:\n",
+        "        count_lower+=1  \n",
+        "    else:\n",
+        "        continue  \n",
+        "        i+=1\n",
+        "     \n",
+        "  print(f\"\\ncount_upper:{count_upper} \\ncount_lower: {count_lower}\")  \n",
+        "string=input(\"Enter any string: \")  \n",
+        "func2(string)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter any string: Taiba Naz\n",
+            "\n",
+            "count_upper:2 \n",
+            "count_lower: 6\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "bBoPJpKhlNAe",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 89
+        },
+        "outputId": "6d14471c-3f10-4546-fbfe-8a4ce04fb7cd"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "def func2(word):\n",
+        "  count_upper=count_lower=0\n",
+        "  import string\n",
+        "  a=string.ascii_uppercase\n",
+        "  b=string.ascii_lowercase\n",
+        "  for i in word:\n",
+        "    if i in a:\n",
+        "        count_upper+=1\n",
+        "    elif i in b:\n",
+        "        count_lower+=1  \n",
+        "    else:\n",
+        "        continue  \n",
+        "        i+=1\n",
+        "     \n",
+        "  print(f\"\\ncount_upper:{count_upper} \\ncount_lower: {count_lower}\")  \n",
+        "string=input(\"Enter any string: \")  \n",
+        "func2(string)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter any string: Taiba Naz\n",
+            "\n",
+            "count_upper:2 \n",
+            "count_lower: 6\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Um4-dddTcz26",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 109
+        },
+        "outputId": "1d7f9a45-f413-497e-9ef3-d918dceae4df"
+      },
+      "source": [
+        "#Alternative suggested by : Saket (Intern)\n",
+        "\n",
+        "#Code Below :\n",
+        "def inp(w):\n",
+        "  l = u = e = 0\n",
+        "  for i in w:\n",
+        "    if i.islower():\n",
+        "      l+=1\n",
+        "    elif i.isupper():\n",
+        "      u+=1\n",
+        "    else:\n",
+        "      e+=1\n",
+        "  print(f\"\\nThe no. of lowercase letters : {l}\\nThe no. of uppercase letters : {u}\\nExceptions : {e}\")\n",
+        "\n",
+        "inp(input(\"Enter your string : \"))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter your string : HelLo 123\n",
+            "\n",
+            "The no. of lowercase letters : 3\n",
+            "The no. of uppercase letters : 2\n",
+            "Exceptions : 4\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "mX1rsVQ4o765"
+      },
+      "source": [
+        "<pre>5.) Return all the letters of the odd indices for an inputted string<br>by the user without using while, for or  conditional (if-else) statements.</ore>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "YgWUF0ZbpSJO",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 53
+        },
+        "outputId": "ab6fcae2-135a-4bbb-e873-ec5346a6dfee"
+      },
+      "source": [
+        "#Solved by : Dinesh\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "x = input(\"Enter the string : \")\n",
+        "\n",
+        "print(x[1::2])"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter the string : string\n",
+            "tig\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "7v3CxEKCrLHW",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 53
+        },
+        "outputId": "deed80d4-4415-4162-ba95-a74c172852f0"
+      },
+      "source": [
+        "#Alternative solution with function:Taiba Naz\n",
+        "def odd_string():\n",
+        "  string=input(\"Enter any string: \") \n",
+        "  odd_string=string[1:len(string):2]\n",
+        "  return odd_string\n",
+        "odd_string()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter any string: string\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'tig'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "dvdSbrKDpSvW"
+      },
+      "source": [
+        "<pre>6.) One of the few famous camel-case examples are : eBay, iPhone where usually the second letter<br>is capital while all others are lowercase. Accept any string from the user<br> and make sure all the words in the string are converted to camel-case.\n",
+        "\n",
+        "Eg : Input String : THE Blue MOON\n",
+        "output : tHe bLue mOon\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "_6Accd7VqM-v"
+      },
+      "source": [
+        "#Solved by : Maddipati Rakesh kumar\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "def camel(s):\n",
+        "    s.strip\n",
+        "    \n",
+        "    fin=str()\n",
+        "    for i in s.split():\n",
+        "        res=str()\n",
+        "        for j in range(len(i)):\n",
+        "                if j==1:\n",
+        "                    res1=i[j].upper()\n",
+        "                    res=\"\".join([res,res1])\n",
+        "                else :\n",
+        "                    res1=i[j].lower()\n",
+        "                    res=\"\".join([res,res1])\n",
+        "        fin=\" \".join([fin,res])\n",
+        "        \n",
+        "    print(fin.strip())"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jcB4wUakJynk"
+      },
+      "source": [
+        "camel(\"iphone ebay\")"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "lqFnjiGv-Fvo",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "outputId": "b935c818-6e06-40cb-fae5-5cf541810fb9"
+      },
+      "source": [
+        "#Alternate Solved by : Rajanna A01\n",
+        "\n",
+        "#Code/Answers below \n",
+        "\n",
+        "def Upper2(x):\n",
+        "    x = x.lower()\n",
+        "    y = x.split()\n",
+        "    word = []\n",
+        "    \n",
+        "    for i in y:\n",
+        "        k = i[1].upper()\n",
+        "        z = \"\".join([i[0],k,i[2:]]) #z = \"\"+i[0]+i[1].upper()+i[2:]\n",
+        "        word.append(z)\n",
+        "   \n",
+        "    w = \" \".join(word) \n",
+        "    print(w)\n",
+        "\n",
+        "Upper2(\"THE Blue MOON\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "tHe bLue mOon\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_J-wBNdnqh5z"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "#  <h1><u><center><b> GROUP-2 (G-2) : </b></center></u></h1>\n",
+        "\n",
+        "\n",
+        "<hr>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wfTAD3o4qnhY"
+      },
+      "source": [
+        "<pre>1.) Given the following text :\n",
+        "\n",
+        ">>> text = \"\"\"Domestic confined any but son bachelor advanced remember. How proceed offered her job. \n",
+        "Returned peculiar pleasant but appetite differed she.\n",
+        "Residence dejection agreement am as to abilities immediate conclusion.\n",
+        "Ye am depending propriety sweetness distrusts belonging collected at my email username@email.com. \n",
+        "Smiling mention he in thought equally musical. Wisdom new and valley answer. Contented it so is challenge recommend. \n",
+        "Email sent at info@example.Con Man its upon him call mile.\n",
+        "An pasture he himself believe ferrars besides cottage.\n",
+        "Return as many offers rejected,send only important offers.\n",
+        "Received by someone@gmail.com who is very nice at hiding popcorns\"\"\"\n",
+        "\n",
+        "Find all the emails from the given paragraph using the regex module and print the same.\n",
+        "You can use the text variable defined above for the same.</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "2nEGrr8Zst2n",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "outputId": "c36fad09-46ca-44e1-a4db-6594f1166bac"
+      },
+      "source": [
+        "#Solved by : Vilma BA03\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "import re\n",
+        "text = \"Domestic confined any but son bachelor advanced remember. How proceed offered her job. Returned peculiar pleasant but appetite differed she. Residence dejection agreement am as to abilities immediate conclusion.Ye am depending propriety sweetness distrusts belonging collected at my email username@email.com. Smiling mention he in thought equally musical. Wisdom new and valley answer. Contented it so is challenge recommend. Email sent at info@example.Con Man its upon him call mile. An pasture he himself believe ferrars besides cottage. Return as many offers rejected, send only important offers. Received by someone@gmail.com who is very nice at hiding popcorns\"\n",
+        "email = re.findall('\\S+@\\S+',text)\n",
+        "print (email)\n",
+        "#\\S - Matches any non-whitespace character; equivalent to [^\\s].\n",
+        "#+ - Matches 1 or more (greedy) repetitions of the preceding RE.\n",
+        "# from help(re)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "['username@email.com.', 'info@example.Con', 'someone@gmail.com']\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qLLQPqV7szh1"
+      },
+      "source": [
+        "<pre>2.) Count the number of uppercase, lowercase and extras for any inputted string by the user.\n",
+        "\n",
+        "Eg : Input String : GoOd LeArning PytHon!121\n",
+        "Output :\n",
+        "extras : 5 #(includes spaces, integers & exclaimnation mark)\n",
+        "uppercase : 6\n",
+        "lowercase : 12\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "_SIFZ3FEteqO"
+      },
+      "source": [
+        "#Solved by : Dinesh Kumar S (AI01)\n",
+        "\n",
+        "#Code/Answers below :"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Y1MbCORTb0aj",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 71
+        },
+        "outputId": "84c82614-5779-44fe-fc14-9619fdb55c73"
+      },
+      "source": [
+        "iupper = 0\n",
+        "ilower = 0\n",
+        "ispace = 0\n",
+        "i = 0\n",
+        "s1 = \"GoOd LeArning PytHon!121\"\n",
+        "iupper=sum([i+1 for s in s1 if s == str.upper(s) and s.isnumeric()==False and s !=' ' and s != '!'])\n",
+        "ilower=sum([i+1 for s in s1 if s == str.lower(s) and s.isnumeric()==False and s !=' ' and s != '!'])\n",
+        "ispace=sum([i+1 for s in s1 if s == '' or s=='!' or s.isnumeric()])\n",
+        "print(' Upper Count :',iupper,'\\n Lower Count :',ilower, '\\n ExtrasCount :',ispace)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            " Upper Count : 6 \n",
+            " Lower Count : 12 \n",
+            " ExtrasCount : 4\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "cOSlsLjM6HLz",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 89
+        },
+        "outputId": "64cb0918-cd1f-4f14-e910-b4ee78f6f814"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "import string\n",
+        "x=string.ascii_uppercase\n",
+        "y=string.ascii_lowercase\n",
+        "count_uppercase=count_lowercase=count_extras=0\n",
+        "text=input(\"enter any string: \")\n",
+        "for i in text:\n",
+        "  if i in x:\n",
+        "    count_uppercase+=1\n",
+        "  elif i in y:\n",
+        "    count_lowercase +=1\n",
+        "  else:   \n",
+        "    count_extras+=1\n",
+        "print(f\"count_uppercase: {count_uppercase} \\ncount_lowercase: {count_lowercase} \\ncount_extras: {count_extras}\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter any string: GoOd LeArning PytHon!121\n",
+            "count_uppercase: 6 \n",
+            "count_lowercase: 12 \n",
+            "count_extras: 6\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "NsuDRuqGtfv-"
+      },
+      "source": [
+        "<pre>3.) Create a multiline string that has the letter A on the first line, the letter B on the second line,<br>a single backslash (\\) on the third line, and the letters C and D separated by a tab (\\t) on the fourth line."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UTj52CgirAjR",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 89
+        },
+        "outputId": "62438fd6-f737-41a3-c9e4-0ef9cf2ac8f4"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "def get_random_string(length):\n",
+        "  import string\n",
+        "  import random\n",
+        "  letters=string.ascii_uppercase\n",
+        "  random_string=\"\".join(random.choice(letters) for i in range(length))\n",
+        "  return random_string  \n",
+        " \n",
+        "x='A'+get_random_string(20)\n",
+        "y='B'+get_random_string(10)\n",
+        "z='\\\\'+get_random_string(5)\n",
+        "w='C'+'\\t'+'D'+get_random_string(3)   #Modified by Saket here by adding \"\\t\"\n",
+        "  \n",
+        "print(f\"{x} \\n{y} \\n{z} \\n{w}\") "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "ASVERVMPPLYOAVNPFUWSB \n",
+            "BGQAXLBBMSS \n",
+            "\\BGKDD \n",
+            "C DMFS\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "jpbA-OOirBVQ"
+      },
+      "source": [
+        "<pre>4.) Take two string input from the user and from the first string take all the characters<br>on even indices and from the second string take all the odd indices and join those even & odd<br> characters and create a new string. Try solving using both using for loop and without using for loop.\n",
+        "\n",
+        "EG : \n",
+        "Input String 1 : python\n",
+        "Input String 2 : learning\n",
+        "Output :\n",
+        "ptoerig #(even indices 0,2,4 or p,t,o from string1 & 1,3,5, 7 odd \n",
+        "        #indices or e,r,i,g from string 2).\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Igh26n2csVKF",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 73
+        },
+        "outputId": "d8d25a97-26a1-4508-e3ef-fff9b05598a3"
+      },
+      "source": [
+        "#Solved by : Bharadwaz S (AI01)\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "#with loops\n",
+        "str1=\"python\"\n",
+        "str2=\"learning\"\n",
+        "def str_evod(st1,st2):\n",
+        "  st3=\"\"\n",
+        "  for i in range(0,len(st1)):\n",
+        "    if i%2==0:\n",
+        "      st3+=st1[i]\n",
+        "  for i in range(0,len(st2)):\n",
+        "    if i%2!=0:\n",
+        "      st3+=st2[i]\n",
+        "  print(\"This output is with loops: \",st3)\n",
+        "str_evod(str1,str2)\n",
+        "##Without loops\n",
+        "def str_evod_wl(st1,st2):\n",
+        "  str3=st1[::2]+st2[1::2]\n",
+        "  print(\"This output is without loops: \",str3)\n",
+        "str_evod_wl(str1,str2)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "This output is with loops:  ptoerig\n",
+            "This output is without loops:  ptoerig\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PFMLqb90q5tJ",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 125
+        },
+        "outputId": "6316304f-6ecd-4d2a-c919-f4b7e7876b84"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "#with loop\n",
+        "str1=input('enter first string: ')\n",
+        "str2=input(\"enter second string: \")\n",
+        "count=0\n",
+        "result_1=result_2=''\n",
+        "\n",
+        "for i in str1:\n",
+        "  if count%2==0:\n",
+        "    result_1+=i\n",
+        "  count+=1\n",
+        "print(result_1) \n",
+        "\n",
+        "for i in str2:\n",
+        "  if count%2!=0:\n",
+        "    result_2+=i\n",
+        "  count+=1\n",
+        "print(result_2) \n",
+        "new_string=result_1+result_2\n",
+        "print(f\"new_string with loop: {new_string}\")\n",
+        "#without loop\n",
+        "new_string=str1[::2]+str2[1::2]\n",
+        "print(f\"new_string without loop: {new_string}\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter first string: python\n",
+            "enter second string: learning\n",
+            "pto\n",
+            "erig\n",
+            "new_string with loop: ptoerig\n",
+            "new_string without loop: ptoerig\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "rLjqNwhIsVyO"
+      },
+      "source": [
+        "<pre>5.) Write a program that asks the user to enter a programming language. If the language entered is\n",
+        "Python, then print out a message saying that they entered Python. Otherwise don’t print out saying \n",
+        "\"Python is not entered\". The program should work regardless of which letters of Python are capitalized (it should\n",
+        "recognize, Python, python, PYTHON, PyTHoN, etc).</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HSfjH0R5swPa"
+      },
+      "source": [
+        "#Solved by : Prem Kumar KM\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "\n",
+        "#rading the input and converting it to lower case\n",
+        "Pro_lang = input(\"Enter the Programming language \").lower()\n",
+        "\n",
+        "#if statement to check the entered text \n",
+        "if Pro_lang == \"python\":\n",
+        "    print(\"Enter language is Python\")\n",
+        "else:\n",
+        "    print(\"Python is not entered\")\n"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jeOCy0pq0KyN",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 71
+        },
+        "outputId": "d503379e-fe7e-48e7-d04a-aa5da1a7038d"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "PL=input(\"enter a programming language: \")\n",
+        "for i in PL:\n",
+        "  pl=PL[0].upper()+PL[1:].lower() #convert  input into required format\n",
+        "print(pl)\n",
+        "if pl=='Python':\n",
+        "  print(\"entered Python\")\n",
+        "else:\n",
+        "  print(\"Python is not entered\")  "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a programming language: PyTHoN\n",
+            "Python\n",
+            "entered Python\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "OE5B14i2sxnW"
+      },
+      "source": [
+        "<pre>6.) Write a program to return the count of each letter in an inputted string.\n",
+        "\n",
+        "EG : Inputted String : hello\n",
+        "Output:\n",
+        "h = 1\n",
+        "e = 1\n",
+        "l = 2\n",
+        "o = 1\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UhChNxsUtFHF",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 107
+        },
+        "outputId": "d4f2ca88-d1f5-41b5-fe68-0157717e95cc"
+      },
+      "source": [
+        "#Solved by : Ashish K. Singh(BA05)\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "\n",
+        "word = input(\"Enter a word : \")\n",
+        "\n",
+        "frequency = {}\n",
+        "\n",
+        "for i in word: \n",
+        "  frequency[i] = frequency.get(i, 0) + 1\n",
+        "\n",
+        "# Show Output\n",
+        "print (\"Per char frequency in '{}' is :\\n {}\".format(word, str(frequency)))\n",
+        "\n",
+        "#ALTERNATELY\n",
+        "from collections import Counter\n",
+        "frequency_per_char = Counter(word)\n",
+        "print (\"Per char frequency in '{}' is :\\n {}\".format(word, str(frequency_per_char)))\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a word : hello\n",
+            "Per char frequency in 'hello' is :\n",
+            " {'h': 1, 'e': 1, 'l': 2, 'o': 1}\n",
+            "Per char frequency in 'hello' is :\n",
+            " Counter({'l': 2, 'h': 1, 'e': 1, 'o': 1})\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PcahWMe4xczu",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 109
+        },
+        "outputId": "57fa3b0d-3d31-48f2-b189-424c5649af8e"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "text=input(\"Enter any string: \")\n",
+        "count={}\n",
+        "for x in text:\n",
+        "  if x in count.keys():\n",
+        "    count[x]+=1\n",
+        "  else:\n",
+        "    count[x]=1\n",
+        "\n",
+        "for x in count.keys():    \n",
+        "    print(x,\"=\",count[x])\n",
+        "        "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter any string: hello\n",
+            "h = 1\n",
+            "e = 1\n",
+            "l = 2\n",
+            "o = 1\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PPOzd3-EtvAg"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "#  <h1><u><center><b> GROUP-3 (G-3) : </b></center></u></h1>\n",
+        "\n",
+        "\n",
+        "<hr>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "X3vscjfMuANc"
+      },
+      "source": [
+        "<pre>1.) Write a program to find all the letters in an inputted string that repeats more than 1 time.\n",
+        "\n",
+        "Eg : Inputted String : abbbccddaeffghhhhh\n",
+        "Output :\n",
+        "Strings repeating more than 1 time : \n",
+        "a, b, c, d, f, h (#e and g have been ignored as they repeat only once)\n",
+        "</pre> "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KDcFtj_9uYUa",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 102
+        },
+        "outputId": "09bc5cc9-6de0-481f-9bba-78dd5ea5d3e7"
+      },
+      "source": [
+        "#Solved by : Prem Kumar KM AIO1\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text=input(\"Enter any string: \")\n",
+        "count={}\n",
+        "for x in text:\n",
+        "  if x in count.keys():\n",
+        "    count[x]+=1\n",
+        "  else:\n",
+        "    count[x]=1\n",
+        "\n",
+        "for x in count.keys():    \n",
+        "    if(count[x]>1):\n",
+        "        print(x,\"=\",count[x])"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter any string: Prem Kumar KM\n",
+            "r = 2\n",
+            "m = 2\n",
+            "  = 2\n",
+            "K = 2\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Y6Z0iP9juYl6"
+      },
+      "source": [
+        "<pre>2.) Write a program to accept two strings from the user and find the characters that are uncommon\n",
+        "in both the strings inputted. If all the letters are different then print \"Unique Strings!\"\n",
+        "\n",
+        "Eg 1: \n",
+        "Input String 1 : data\n",
+        "Input String 2 : scientist\n",
+        "Output :\n",
+        "Uncommon letters : \n",
+        "d, a, t, a, s, c, i, e, n, t, i, s, t\n",
+        "The given strings are Unique!\n",
+        "\n",
+        "Eg 2:\n",
+        "Input String 1 : lower\n",
+        "Input String 2 : power\n",
+        "Output :\n",
+        "Uncommon letters :\n",
+        "l, p\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "zVIt8ny8vR1q",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 90
+        },
+        "outputId": "97cd4d41-d6a5-48fd-f3d6-85e55143a841"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "string_1=input(\"Enter first string: \")\n",
+        "string_2=input(\"Enter first string: \")\n",
+        "s1=set(string_1)\n",
+        "s2=set(string_2)\n",
+        "lst=set(s1 & s2)\n",
+        "\n",
+        "for i in string_1:\n",
+        "  if i not in lst:\n",
+        "     print(i,end=\",\")\n",
+        "for j in string_2:\n",
+        "  if j not in lst:\n",
+        "     print(j,end=\",\")  \n",
+        "print()      \n",
+        "if len(lst)==0:\n",
+        "  print(\"The given strings are Unique!\")    "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter first string: abc\n",
+            "Enter first string: def\n",
+            "a,b,c,d,e,f,\n",
+            "The given strings are Unique!\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hH-H4qmFvSr0"
+      },
+      "source": [
+        "<pre>3.) Accept a single character from the user. If it isn't a single error then throw an error :\n",
+        "\"Not a single character\". Check if it the single character entered is within first 13 letters \"A to M\"\n",
+        "or if it is between last 13 letters \"N to Z\" (for total of 26 letters, A to Z.)\n",
+        "\n",
+        "Eg 1 : Input character : y\n",
+        "Output:\n",
+        "The inputted character \"y\" belongs in last 13 letters from \"N\" to \"Z\".\n",
+        "\n",
+        "Eg 2 : Input character : J\n",
+        "Output:\n",
+        "The inputted character \"j\" belongs in first 13 letters from \"A\" to \"M\".\n",
+        "\n",
+        "Eg 3 : Input character : hello\n",
+        "Ouput:\n",
+        "Please enter one length characters only!\n",
+        "\n",
+        "Eg 4 : Input character : 2\n",
+        "Output:\n",
+        "Not a valid character!\n",
+        "\n",
+        "NOTE : Make sure the output is exactly the same\n",
+        "With double quotes surrounding inputted character\n",
+        "(here, \"y\" or \"J\") & first & last 13 letters range.\"A\" to \"M\" or \"N\" to \"Z\"."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "pv4vOgctzffY",
+        "cellView": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "19d90a28-28c5-45d8-ca45-feea2144347a"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "import string\n",
+        "string=\"string.ascii_uppercase\"\n",
+        "char=input('enter a single character: ')\n",
+        "char_upper=char.upper()\n",
+        "if len(char_upper)==1:\n",
+        "    if char_upper in string[:13]:\n",
+        "      print('The inputted character',char_upper,'belongs in first 13 letters from \"A\" to \"M\"')\n",
+        "    else:\n",
+        "      print('The inputted character',char_upper,'belongs in last 13 letters from \"N\" to \"Z\"')\n",
+        "else:\n",
+        "    print(\"Please enter one length characters only!\")\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a single character: b\n",
+            "The inputted character B belongs in last 13 letters from \"N\" to \"Z\"\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "s8_Qph67VGgR",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "b99d4009-d429-425c-a3cd-6feb3aa0c996"
+      },
+      "source": [
+        "#Suggested by : Rakesh Kumar\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "list1=[]\n",
+        "for i in range(ord('A'),ord('M')+1):\n",
+        "    list1.append(i)\n",
+        "list2=[]\n",
+        "for i in range(ord('N'),ord('Z')+1):\n",
+        "    list2.append(i)\n",
+        "a=input().upper()\n",
+        "if len(a)>1:\n",
+        "    print(\"Please enter one length characters only!\")\n",
+        "else :\n",
+        "    if ord(a) in list1:\n",
+        "        print('The inputted character',a,'belongs in first 13 letters from \"A\" to \"M\"')\n",
+        "    elif ord(a) in list2:\n",
+        "        print('The inputted character',a,'belongs in last 13 letters from \"N\" to \"Z\"')\n",
+        "    else :\n",
+        "        print(\"Not a valid character\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "b\n",
+            "The inputted character B belongs in first 13 letters from \"A\" to \"M\"\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "zuVmao62p9cW",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 54
+        },
+        "outputId": "ea09273a-783e-451c-9372-3c30262e92e4"
+      },
+      "source": [
+        "# Alternative Suggested by : Taiba Naz\n",
+        "import string\n",
+        "string=string.ascii_uppercase\n",
+        "\n",
+        "a=input(\"Please enter a single character: \").upper()\n",
+        "\n",
+        "if len(a)>1:\n",
+        "  print(\"Please enter one length characters only!\")\n",
+        "elif a in string[:13]:\n",
+        "  print('The inputted character',a,'belongs in first 13 letters from \"A\" to \"M\"')\n",
+        "elif a in string[13:]:\n",
+        "  print('The inputted character',a,'belongs in last 13 letters from \"N\" to \"z\"')\n",
+        "else:\n",
+        "  print(\"invalid character!\")  \n",
+        " "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Please enter a single character: a\n",
+            "The inputted character A belongs in first 13 letters from \"A\" to \"M\"\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1xkaFTMnzr_z"
+      },
+      "source": [
+        "<pre>4.) Write a program that prints 10 random lowercase letters, all on the same line. \n",
+        "(learn how to use \"random\" module to do this.)\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "iMOvaSba1amr",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "806081e9-4b6f-4a22-a71a-36c149760fef"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "import random\n",
+        "import string\n",
+        "\n",
+        "def get_random_string(n):\n",
+        "  letters=string.ascii_lowercase\n",
+        "  result_str=''.join(random.choice(letters)for i in range(n))\n",
+        "  print(result_str)\n",
+        "get_random_string(10)    "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "essbqccgci\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qtYI5NGM1a_7"
+      },
+      "source": [
+        "<pre>5.) Accept a string and check if it is a valid roman number from 1 to 39 or not. \n",
+        "(Hint : You can use regex or string slicing for this).\n",
+        "<hr>(EXTRA CHALLENGE : Try to convert the given roman no. to equivalent integer, if not possible then skip this challenge)\n",
+        "<hr>\n",
+        "Eg 1 : Input a roman number : IIIIII\n",
+        "Output:\n",
+        "Not a valid roman number!\n",
+        "\n",
+        "Eg 2 : Input a roman number : XVIIII\n",
+        "Output:\n",
+        "Not a valid roman number!\n",
+        "\n",
+        "Eg 3 : Input a roman number : XXIX\n",
+        "Output:\n",
+        "Valid roman number. (#It is 29 in roman number.)\n",
+        "</pre>\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "va06ACdRwkIf",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e7bfbac7-ac94-480e-dbab-c90f49e343ff"
+      },
+      "source": [
+        "#Solved by : Taiba naz\n",
+        "def roman_integer():\n",
+        "  import re\n",
+        "  digits='(IX|IV|V?I{0,3})' #individual digits\n",
+        "  tens='(X{0,3})'#includes X,XX,XXX\n",
+        "  regex_pattern=r'%s%s$'%(tens,digits)\n",
+        "  roman_number=input(\"enter a roman number from 1 to 39: \").upper()\n",
+        "  if bool(re.match(regex_pattern,roman_number))==True:\n",
+        "      print(\"Valid roman number\")\n",
+        "      d={'I':1,'V':5,'X':10}\n",
+        "      result=0 \n",
+        "      for i in range(len(roman_number)):   \n",
+        "        if i+1!=len(roman_number) and d[roman_number[i]]<d[roman_number[i+1]]:\n",
+        "          result-=d[roman_number[i]]\n",
+        "        else:\n",
+        "          result+=d[roman_number[i]] \n",
+        "      print(result)\n",
+        "  else:\n",
+        "      print(\"Not a Valid roman number\")   \n",
+        "roman_integer() \n",
+        "roman_integer()  \n",
+        "roman_integer()  \n",
+        "roman_integer()      "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a roman number: IIIIII\n",
+            "Not a Valid roman number\n",
+            "enter a roman number: XVIIII\n",
+            "Not a Valid roman number\n",
+            "enter a roman number: XXIX\n",
+            "Valid roman number\n",
+            "29\n",
+            "enter a roman number: ix\n",
+            "Valid roman number\n",
+            "9\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1Xh-CI3YEZ4t",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "8a9c10ea-1d56-437c-a796-bc5c34e6249a"
+      },
+      "source": [
+        "#Solved by : Taiba naz\n",
+        "\n",
+        "#Roman number validation and conversion to integer from 1 to 3999\n",
+        "#Roman number validation and conversion to integer from 1 to 3999\n",
+        "def roman_integer(r):\n",
+        "  import re\n",
+        "  digits='(IX|IV|V?I{0,3})' #individual digits\n",
+        "  tens='(XC|XL|L?X{0,3})'#matches anything like X,XX,XXX,XL,...upto XC(90)\n",
+        "  hundreds='(CM|CD|D?C{0,3})'#matches anything like C,CC,CCC,CD,D,DC,....upto CM(900)\n",
+        "  thousands='(M{0,3})'\n",
+        "  regex_pattern=r'%s%s%s%s$'%(thousands,hundreds,tens,digits)\n",
+        "  roman_number=r.upper()\n",
+        "  if bool(re.match(regex_pattern,roman_number))==True:\n",
+        "      print(r,\"is a valid roman number and eqivalent to : \",end=\"\")\n",
+        "      d={'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000,}\n",
+        "      result=0 \n",
+        "      for i in range(len(roman_number)):   \n",
+        "        if i+1!=len(roman_number) and d[roman_number[i]]<d[roman_number[i+1]]:\n",
+        "          result-=d[roman_number[i]]\n",
+        "        else:\n",
+        "          result+=d[roman_number[i]] \n",
+        "      print(result) \n",
+        "  else:\n",
+        "      print(r,\"is not a valid roman number\")   \n",
+        "    \n",
+        "roman_integer('XXIX') \n",
+        "roman_integer('IIIIII')   \n",
+        "roman_integer('XXIX') \n",
+        "roman_integer('XVIIII')\n",
+        "roman_integer('ix') \n",
+        "roman_integer('CDXXI')  \n",
+        "roman_integer('MM') "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "XXIX is a valid roman number and eqivalent to : 29\n",
+            "IIIIII is not a valid roman number\n",
+            "XXIX is a valid roman number and eqivalent to : 29\n",
+            "XVIIII is not a valid roman number\n",
+            "ix is a valid roman number and eqivalent to : 9\n",
+            "CDXXI is a valid roman number and eqivalent to : 421\n",
+            "MM is a valid roman number and eqivalent to : 2000\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "bjuy28XIg_f5",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 90
+        },
+        "outputId": "d8dde0ff-e80d-42ba-9c8a-9d723abb8ee8"
+      },
+      "source": [
+        "#Alternative Solution by : Saket (Intern)\n",
+        "\n",
+        "#Code Below :\n",
+        "def roman(w):\n",
+        "    r = w.upper()\n",
+        "    check_variable = 0\n",
+        "    for i in r:\n",
+        "        if i not in \"IVX\":\n",
+        "            check_variable = 1\n",
+        "            break\n",
+        "    if check_variable == 0:\n",
+        "        if len(r)<8 and len(r)!=0:\n",
+        "            if \"I\" in r[0]:\n",
+        "                if r.count(\"I\")>3:\n",
+        "                    print(\"\\nError! The given roman number is wrong.\")\n",
+        "                elif (\"V\" in r and r!=\"IV\") or (\"X\" in r and r!=\"IX\"):\n",
+        "                    print(\"\\nError! The given roman number is wrong!\")\n",
+        "                else:\n",
+        "                    print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "            elif \"V\" in r[0]:\n",
+        "                if r.count(\"V\")>1 or r.count(\"I\")>3 or r.count(\"X\")>0:\n",
+        "                    print(\"\\nError! The given roman number is wrong!!\")\n",
+        "                else:\n",
+        "                    print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "            elif \"X\" in r[0]:\n",
+        "                if r!=\"XXXIX\" and r.count(\"X\")>3:\n",
+        "                    print(\"\\nError! The roman number inputted is invalid.\")\n",
+        "                elif \"XI\" in r[0:2]: \n",
+        "                    if (r!=\"XIX\" and r!=\"XIV\"): \n",
+        "                        if (r.count(\"V\")>1 or r.count(\"I\")>3 or r.count(\"X\")>2 or r.count(\"IX\")>0 or r.count(\"IV\")>0):\n",
+        "                            print(\"\\nError! The roman number inputted is invalid!\")\n",
+        "                        else:\n",
+        "                            print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "                    else:\n",
+        "                        print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "                elif \"XI\" in r and \"IX\" not in r[-2:]:\n",
+        "                    if r.count(\"V\")>1 or r.count(\"I\")>3 or r[r.find(\"V\"):].count(\"X\")>0 or r[r.find(\"I\"):].count(\"X\")>0 or r[r.find(\"XI\")+2:].count(\"IV\")>0 or r[r.find(\"XI\")+2:].count(\"VI\")>0:\n",
+        "                        print(\"\\nError! The roman number inputted is invalid!!\")\n",
+        "                    else:\n",
+        "                        print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "                elif \"V\" in r:\n",
+        "                    if r[r.find(\"V\"):].count(\"X\")>0 or r.count(\"V\")>1 or r.count(\"I\")>3:\n",
+        "                        print(\"\\nError! The roman number inputted is invalid!!!\")\n",
+        "                    else:\n",
+        "                        print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "                elif \"IX\" in r[-2:]:\n",
+        "                    if r.count(\"V\")>0 or r.count(\"I\")>1 or r.count(\"XI\")>1:\n",
+        "                        print(\"\\nError! The roman number inputted is invalid!!!!\")\n",
+        "                    else:\n",
+        "                        print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "                else:\n",
+        "                    print(\"\\n\\tEntered roman number is valid and in range of 1 to 39!!\\n\") \n",
+        "        else:\n",
+        "            print(\"\\nError! The provided roman number is wrong or not in range of 1 to 39!\")\n",
+        "    else:\n",
+        "        print(\"\\nERROR! The roman number provided invalid or not in range of 1 to 39!!\")\n",
+        "\n",
+        "\n",
+        "roman(input(\"\\nEnter roman number from 1 to 39 : \"))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Enter roman number from 1 to 39 : xixx\n",
+            "\n",
+            "Error! The roman number inputted is invalid!\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Rkey5xDA4f4O"
+      },
+      "source": [
+        "<pre>6.)Return all the indices of characters \"x\",\"y\" and \"z\" in an inputted string in one line.\n",
+        "\n",
+        "Eg : Inputted String : Hellozz y ix no onez zpeakingzz\n",
+        "Output:\n",
+        "5,6,8,11,19,21,29,30,\n",
+        "</pre>\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-BfFLPxy5bH-",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 50
+        },
+        "outputId": "668610cb-6032-4c79-84c4-417c74e4cfc4"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "string=input(\"Enter any string: \")\n",
+        "for i in range(len(string)):\n",
+        "  if string[i] in 'xyz':\n",
+        "    print(i,end=\",\")\n",
+        "   "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter any string: Hellozz y ix no onez zpeakingzz\n",
+            "5,6,8,11,19,21,29,30,"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "SQUUwsR3G28z",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "2af7eebe-d043-4fb4-a4fe-bccd6184bb4c"
+      },
+      "source": [
+        "w = \"Hellozz y ix no onez zpeakingzz\"\n",
+        "l = []\n",
+        "for i in range(len(w)):\n",
+        "  if w[i] in \"xyz\":\n",
+        "    l.append(i)\n",
+        "print(l)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[5, 6, 8, 11, 19, 21, 29, 30]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "W80hyGiG5b1N"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "#  <h1><u><center><b> GROUP-4 (G-4) : </b></center></u></h1>\n",
+        "\n",
+        "\n",
+        "<hr>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "AUOX5gEf5iO4"
+      },
+      "source": [
+        "<pre>1.) Write a program that asks the user to enter a string. Print out whether the string contains more capital\n",
+        "As than capital Bs, the same amount, or more capital Bs.\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "r6fBjcp55rU7",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 67
+        },
+        "outputId": "412ef6d6-6b56-467d-f3ea-80d01961821a"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "count_A=count_B = 0\n",
+        "z=input(\"enter a string: \")\n",
+        "for i in range(len(z)):\n",
+        "  if z[i]=='A':\n",
+        "    count_A+=1\n",
+        "  elif z[i]==\"B\":\n",
+        "    count_B+=1\n",
+        "  else:\n",
+        "    continue  \n",
+        "print(count_A,count_B)\n",
+        "if count_A >count_B:\n",
+        "  print(\"String contains more As\")\n",
+        "elif count_A <count_B:\n",
+        "  print(\"String contains more Bs\")  \n",
+        "else:\n",
+        "  print(\"Both are same in number\")\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a string: AABBCCC\n",
+            "2 2\n",
+            "Both are same in number\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8mx9c-e-5rn3"
+      },
+      "source": [
+        "<pre>2.) Accept a string with multiple words in it from the user. Return the first letters from all these words\n",
+        "in the same line and capitilize them as well.\n",
+        "\n",
+        "Eg : Input String : Sample text\n",
+        "Ouput :\n",
+        "S, T #(First, letter of Sample & text which is S & t, but t is capitalzied to T)\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hUA4yqpq6pY2",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 52
+        },
+        "outputId": "6eb9e09e-e47e-486c-9928-ad9d33488518"
+      },
+      "source": [
+        "#Solved by : Jitendra R\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "import string\n",
+        "txt = input(\"Enter Text :\")\n",
+        "lst = [word[0].upper() for word in txt.split()]\n",
+        "txt = \" \".join(lst)\n",
+        "txt"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter Text :Sample text\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'S T'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Y-KXkT3yw2Qs",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 50
+        },
+        "outputId": "0cae1fbb-d08f-4329-aaad-9d6a34fb9c1a"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "import re\n",
+        "string=input(\"Enter a string with multiple words: \")\n",
+        "new_s=string.split()\n",
+        "for i in new_s:\n",
+        " FL= i.capitalize()\n",
+        " print(FL[0],end=\",\")\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a string with multiple words: Sample text\n",
+            "S,T,"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "C-YItSvk6qGq"
+      },
+      "source": [
+        "<pre>3.) Snake case (stylized as snake_case) refers to the style of writing in which each space is replaced by\n",
+        "an underscore (_) character, and the first letter of each word written in lowercase. It is a commonly used naming\n",
+        "convention in computing, for example for variable and subroutine names, and for filenames.\n",
+        "\n",
+        "Convert a string with multiple words inputted by the user to snake case.\n",
+        "\n",
+        "Eg : Input String : random string with no context\n",
+        "Output : random_string_with_no_context\n",
+        "<pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "uGbROrJ47P_7",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 52
+        },
+        "outputId": "1f17e7b3-0c36-4093-a04a-ea2b253cc9e5"
+      },
+      "source": [
+        "#Solved by : Jitendra R\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "import string\n",
+        "snake = input(\"Enter Text :\")\n",
+        "lst = [word[0:].lower() for word in snake.split()]\n",
+        "snake = \"_\".join(lst)\n",
+        "snake"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter Text :FCC OJO SSWSE\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'fcc_ojo_sswse'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "w0AE0LNR7Qaa"
+      },
+      "source": [
+        "<pre>4.) Write a program that asks the user to enter an email address. Assume for this problem that email\n",
+        "addresses are of the form username@somedomain.com, \n",
+        "where there is a user name and a domain\n",
+        "name separate by the @ symbol. Print out the user name and domain name on separate lines.\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-gRc1Imn8QUB",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 264
+        },
+        "outputId": "fe23d418-6023-4a15-ad7e-842f73eae267"
+      },
+      "source": [
+        "#Solved by : Jitendra R\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "import string\n",
+        "email = input(\"Enter email :\")\n",
+        "lst = email.split('@')\n",
+        "username = lst.pop(0)\n",
+        "domain = lst.pop(1)\n",
+        "print('username: '+ username)\n",
+        "print('domain: '+ domain)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter email :xyz@reva.com\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "error",
+          "ename": "IndexError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mIndexError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-1-4438e44ada12>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0mlst\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0memail\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msplit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'@'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m \u001b[0musername\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlst\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpop\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 8\u001b[0;31m \u001b[0mdomain\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlst\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpop\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      9\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'username: '\u001b[0m\u001b[0;34m+\u001b[0m \u001b[0musername\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'domain: '\u001b[0m\u001b[0;34m+\u001b[0m \u001b[0mdomain\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mIndexError\u001b[0m: pop index out of range"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fKCC4QZJXf3j",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "128cc35c-ad6c-441f-aa43-e00a242718f6"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "text=input(\"Enter an email address: \")\n",
+        "index=text.find('@')\n",
+        "user_name=text[:index]\n",
+        "print(f\"'username: {user_name}\")\n",
+        "domain=text[(index+1):-4]\n",
+        "print(f\"domain: {domain}\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter an email address: saket@reva.com\n",
+            "'username: saket\n",
+            "domain: reva\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "W6VEKRYZ8RCD"
+      },
+      "source": [
+        "<pre>5.) Accept an integer, 'n' from the user. Accept 'n' values from the user which are phone numbers.\n",
+        "Check if the phone numbers are valid phone numbers or not.\n",
+        "If it is valid return yes or else return no.\n",
+        "Condition for checking if phone number is valid or not is that\n",
+        "it should have exacty 10 digits and start with 7, 8 or 9.\n",
+        "\n",
+        "EG : Input value of n : 3 (#Accept 3 phone numbers from the user)\n",
+        "Enter phone no. 1 : 8976543210\n",
+        "Enter phone no. 2 : 1234567890\n",
+        "Enter phone no. 3 : 8791735\n",
+        "\n",
+        "Output:\n",
+        "Yes  #First number is a valid phone no.\n",
+        "No   #Not valid as it does not start from 7, 8 or 9\n",
+        "No   #Not valid as it's not ten digits long.\n",
+        "\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "geR119dzE2C1",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "40fc2b03-20e6-487c-cabf-78e22ab68dae"
+      },
+      "source": [
+        "#Solved by : Suresha K\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "\n",
+        "import re \n",
+        "\n",
+        "def valid(s): \n",
+        "\t\n",
+        "\t# 1) Begins with 0 or 91 \n",
+        "\t# 2) Then contains 7 or 8 or 9. \n",
+        "\t# 3) Then contains 9 digits \n",
+        "\tpattern = re.compile(\"(0/91)?[7-9][0-9]{9}\")\n",
+        "\treturn pattern.match(s) \n",
+        "\n",
+        "s = input(\"Enter phone number : \")\n",
+        "if (valid(s)): \n",
+        "\tprint (\"Valid Number\")\t \n",
+        "else : \n",
+        "\tprint (\"Invalid Number\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter phone number : 7543212345\n",
+            "Valid Number\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HnFuXW9IFKzL"
+      },
+      "source": [
+        "<pre>6.) Accept a string from the user and separate the first half and second half of the string and print them separately. \n",
+        "If the string has odd length then print the first half one less length of the second half.\n",
+        "(Eg : If inputted string has length 7, then divide in 3 and 4 parts \n",
+        "& print them separately)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yrqRKBW-F2v3",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 84
+        },
+        "outputId": "e497b53f-e633-47b3-e98d-db601afd0167"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "string=input(\"Enter a string: \")\n",
+        "print(len(string))\n",
+        "n=int((len(string))/2)#middle index\n",
+        "\n",
+        "FH=string[:(n)]  #First half of string\n",
+        "SH=string[n:]    #Second half of string \n",
+        "print(f\"First half of string: {FH}\")\n",
+        "print(f\"Second half of string: {SH}\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a string: abcdefg\n",
+            "7\n",
+            "First half of string: abc\n",
+            "Second half of string: defg\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "SpUfw99VF3p9"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "#  <h1><u><center><b> GROUP-5 (G-5) : </b></center></u></h1>\n",
+        "\n",
+        "\n",
+        "<hr>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "468nOya0F9V7"
+      },
+      "source": [
+        "<pre>1.) Accept a string from the user. Print the first half length as it is and print the second half in reverse.\n",
+        "If the string has odd length then divide the first half length one less than second half length.\n",
+        "\n",
+        "Eg : Input string : world (#length = 5, so divide in 2 and 3 parts.)\n",
+        "Output:\n",
+        "First half : wo  (#Print as it is.)\n",
+        "Second half : dlr (#Reversed) "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "X1K9TFypGdCU",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 67
+        },
+        "outputId": "ed1f9f1b-c7a7-46cb-f6ae-446521bdf42d"
+      },
+      "source": [
+        "#Solved by : Tonima Paul\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "def print_word(w):\n",
+        "  str_split_length = int(len(w)/2)\n",
+        "  first_half = \"\"\n",
+        "  second_half_reversed = \"\"\n",
+        "  if len(w)%2==0:\n",
+        "    first_half = w[:str_split_length]\n",
+        "    second_half = w[str_split_length:len(w)]\n",
+        "    second_half_reversed = second_half[::-1]\n",
+        "  else:\n",
+        "    first_half = w[:str_split_length]\n",
+        "    second_half = w[str_split_length:len(w)]\n",
+        "    second_half_reversed = second_half[::-1]\n",
+        "  print(f\"First half  : {first_half}\\nSecond half : {second_half_reversed}(#Reversed)\")\n",
+        "\n",
+        "print_word(input(\"Enter the string : \"))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter the string : hello world\n",
+            "First half  : hello\n",
+            "Second half : dlrow (#Reversed)\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JEqVKCtDheB1",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 84
+        },
+        "outputId": "5ddb54a1-beab-4973-8aa7-9d99c5844002"
+      },
+      "source": [
+        "#Alternative solution by :Taiba Naz\n",
+        "string=input(\"Enter a string: \")\n",
+        "print(len(string))\n",
+        "n=int((len(string))/2)#middle index\n",
+        "\n",
+        "FH=string[:(n)]  #First half of string\n",
+        "SH=string[:n-1:-1]    #Second half of string \n",
+        "print(f\"First half of string: {FH}\")\n",
+        "print(f\"Second half of string: {SH}\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a string: world\n",
+            "5\n",
+            "First half of string: wo\n",
+            "Second half of string: dlr\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4FgO0hQpGdr7"
+      },
+      "source": [
+        "<pre>2.) Write a program that asks the user to enter a string. If the string contains any periods, commas, or\n",
+        "semicolons, then print out the message “There is some punctuation.” Otherwise, print out a count of\n",
+        "how many spaces there are in the string."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "oi731hkNGr92",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 67
+        },
+        "outputId": "1b5e919c-9e4a-4016-fcf9-904536abc904"
+      },
+      "source": [
+        "#Solved by :Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "import string\n",
+        "x=string.punctuation#contains all the punctuations\n",
+        "count=0\n",
+        "text=input(\"Enter a string: \")\n",
+        "for i in text:\n",
+        "  if i in x:\n",
+        "    print(\"There is some punctuation\")\n",
+        "  else:\n",
+        "    if i.isspace():\n",
+        "      count+=1\n",
+        "print(f\"Number of whitespaces: {count}\")  "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a string: bc.gh  b\n",
+            "There is some punctuation\n",
+            "Number of whitespaces: 2\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-W6mfRfyGskU"
+      },
+      "source": [
+        "<pre>3.) Write a program that accepts a string from the user and returns the even indices of the reversed string inputted\n",
+        "by the user without using lists, for, while or if-else statements.\n",
+        "\n",
+        "Eg : Input string : Hello\n",
+        "Output:\n",
+        "olh\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "W4w89uTKG_jZ",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 52
+        },
+        "outputId": "a94466d1-f1f3-4491-fb7e-a26101073b53"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text=input(\"Enter a string: \").lower()\n",
+        "x=text[-1::-2]\n",
+        "x"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a string: Hello\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'olh'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Yob91dwSHOZN"
+      },
+      "source": [
+        "<pre>4.) Accept a string from the user and write a code to print all odd indices from the inputted string,<br> provided the odd indices have vowels, else ignore those odd indices."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "awxOvHveIc-H",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 50
+        },
+        "outputId": "d56cbcb6-1c7b-43b0-9b47-3a1827a8d5f5"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text=input(\"Enter a string: \").lower()\n",
+        "n=len(text)\n",
+        "x=text[1:n:2]\n",
+        "for l in x:\n",
+        "  if l in 'aeiou':\n",
+        "    print(\"odd indices have vowels: \",l,end=\",\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a string: Accept\n",
+            "odd indices have vowels:  e,"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UR-viKRZIdTo"
+      },
+      "source": [
+        "<pre>5.) Write a code to accept a given string with mulitple words from the user. \n",
+        "Return all words that are enclosed between < & > symbols with the symbols included in the output.\n",
+        "\n",
+        "EG : Input string : &lt;body&gt;&lt;h1&gt;This is a title&lt;/h1&gt;&lt;/body&gt;\n",
+        "Output:\n",
+        "&lt;body&gt;\n",
+        "&lt;h1&gt;\n",
+        "&lt;/h1&gt;\n",
+        "&lt;/body&gt;"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "0H3L4WAPJnze",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "9a3f8de7-263f-4ea3-8c4f-fd3edaf58f05"
+      },
+      "source": [
+        "#Solved by : \n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text=input(\"enter a string with mulitple words: \")\n",
+        "import re\n",
+        "pattern=re.compile('<[a-z]>')\n",
+        "matches=pattern.finditer(text)\n",
+        "for match in matches:\n",
+        "  print(match)\n",
+        "\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a string with mulitple words: <body><h1>This is a title</h1></body>\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "z-Q4rbRgbm36",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "14892ac1-b68e-44c0-ad3a-db662c0a71b6"
+      },
+      "source": [
+        "#Alternative Suggested by : Saket Savarn (Intern)\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text = input(\"Enter string : \")\n",
+        "\n",
+        "s = \"\"\n",
+        "for i in range(len(text)):\n",
+        "  index = 0\n",
+        "  if text[index]==\"<\":\n",
+        "    while text[index]!=\">\":\n",
+        "      s+=text[index]\n",
+        "      index+=1\n",
+        "    \n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter string : <body><h1>This is a title</h1></body>\n",
+            "<body><h1>This \n",
+            "\n",
+            "title</h1></body> \n",
+            "\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "fnzR2t9GJoJa"
+      },
+      "source": [
+        "<pre>6.) Check if an inputted string is in camel-case or not.\n",
+        "One of the examples of camel-case is : eBay or iPhone.\n",
+        "Here, only the second letter in the word is capital.\n",
+        "If it is camel-case return \"Inputted string is camel-case\"\n",
+        "else return \"Not in camel-case\".\n",
+        "\n",
+        "EG : Input String : hUman\n",
+        "Output:\n",
+        "Inputted string is camel-case"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "2zihWnQPKgsS",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 50
+        },
+        "outputId": "80028b25-7c30-43a4-97e4-c52635e923bc"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text=input(\"enter a string: \")\n",
+        "if text[1].isupper():\n",
+        "  print(\"Inputted string is camel-case\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a string: hUman\n",
+            "Inputted string is camel-case\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "B6MkV9oaKojW"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "#  <h1><u><center><b> GROUP-6 (G-6) : </b></center></u></h1>\n",
+        "\n",
+        "\n",
+        "<hr>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "s2bWkIvwKwUl"
+      },
+      "source": [
+        "<pre>1.) Accept the firstname and lastname of a person on two different lines. \n",
+        "Your task is to read them and print the following:\n",
+        "\n",
+        "    Hello firstname lastname! You just delved into python.\n",
+        "\n",
+        "Eg : Input:\n",
+        "Chandler \n",
+        "Bing\n",
+        "\n",
+        "Output:\n",
+        "Hello Chandler Bing! You just delved into python.\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BmYLOvF7LU6S",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 67
+        },
+        "outputId": "4c357df0-ca9b-4398-edae-378df4fb95de"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "f_name=input(\"Enter your first name:\")\n",
+        "l_name=input(\"Enter your last name:\")\n",
+        "print(f\"Hello {f_name} {l_name}! You just delved into python.\")\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter your first name:Taiba\n",
+            "Enter your last name:Naz\n",
+            "Hello Taiba Naz! You just delved into python.\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "vU4NqheaLVbW"
+      },
+      "source": [
+        "<pre>2.) Write a program that asks the user to enter a string of at least six characters. Then print out the\n",
+        "following:\n",
+        "(a) The length of the string\n",
+        "(b) The second character of the string\n",
+        "(c) The last character of the string\n",
+        "(d) The first five characters of the string\n",
+        "(e) The last two characters of the string\n",
+        "(f) The string backwards\n",
+        "(g) Every character of the string except the last one\n",
+        "(h) Every character of the string except the first and last\n",
+        "(i) If the string contains a lowercase alphabet \"a\", print out the index of the first \"a\" occurance. \n",
+        "Otherwise say that there is no lowercase \"a\"\n",
+        "(j) The string in all caps\n",
+        "(k) The string with every space replaced with an underscore"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "EhapvwoOMC6W",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 219
+        },
+        "outputId": "0a3cc828-0023-4ef5-decd-cabae06fb4a9"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text=input(\"enter a string of at least six characters: \")\n",
+        "print(\"The length of the string: \",len(text))\n",
+        "print(\"The second character of the string: \" ,text[1])\n",
+        "print(\"The last character of the string: \",text[-1])\n",
+        "print(\"The first five characters of the string: \",text[:5])\n",
+        "print(\"The last two characters of the string: \",text[-2:])\n",
+        "print(\"The string backwards: \",text[(len(text)+1)::-1])\n",
+        "print(\"Every character of the string except the last one:\",text[:-1])\n",
+        "print(\"Every character of the string except the first and last: \",text[1:-1])\n",
+        "import re\n",
+        "m=re.search('a',text)\n",
+        "if m :\n",
+        "  print(\"The index of the first 'a' occurance. \",m.start())\n",
+        "else:  \n",
+        "  print(\"there is no lowercase 'a'\")\n",
+        "print(\"string in all caps: \",text.upper()) \n",
+        "print(\"The string with every space replaced with an underscore: \",text.replace(' ','_')) "
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a string of at least six characters: Taiba Naz\n",
+            "The length of the string:  9\n",
+            "The second character of the string:  a\n",
+            "The last character of the string:  z\n",
+            "The first five characters of the string:  Taiba\n",
+            "The last two characters of the string:  az\n",
+            "The string backwards:  zaN abiaT\n",
+            "Every character of the string except the last one: Taiba Na\n",
+            "Every character of the string except the first and last:  aiba Na\n",
+            "The index of the first 'a' occurance.  1\n",
+            "string in all caps:  TAIBA NAZ\n",
+            "The string with every space replaced with an underscore:  Taiba_Naz\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hJVSa31TMDWa"
+      },
+      "source": [
+        "<pre>3.) Accept two strings from the user. Print out the first half of the first string and the second half of the second \n",
+        "string together.\n",
+        "\n",
+        "EG 1 : Input string 1 : \"hello\" (#Since length is odd, take 2 instead of 2.5 for half length of 5. (So \"he\" from \"hello\"))\n",
+        "Input string 2 : \"python\" (\"hon\" from python, as that's the second half of python)\n",
+        "\n",
+        "Output:\n",
+        "hehon\n",
+        "\n",
+        "EG 2 : Input string 1 : longer #(First half is \"lon\")\n",
+        "Input string 2 : word  #(Second half is \"rd\")\n",
+        "\n",
+        "Output:\n",
+        "longrd\n",
+        "</pre> "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BwOZTld9NGng",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 67
+        },
+        "outputId": "5fa1a6e2-33ef-46f9-ee0b-d2125baa92cb"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "str1=input(\"enter first string: \")\n",
+        "str2=input(\"enter second string: \")\n",
+        "n1=int(len(str1)/2)\n",
+        "w1=str1[:n1+1]\n",
+        "n2=int(len(str2)/2)\n",
+        "w2=str2[n2:]\n",
+        "new_string=w1+w2\n",
+        "print(new_string)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter first string: longer\n",
+            "enter second string: word\n",
+            "longrd\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZlUG-QEfNHMR"
+      },
+      "source": [
+        "<pre>4.) Write a program that asks the user to enter a sentence, removes all the spaces from the sentence,\n",
+        "converts the remainder to uppercase, and prints out the result.\n",
+        "\n",
+        "\n",
+        "EG : Input string : This is a sentence\n",
+        "Output:\n",
+        "THISISASENTENCE\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "mMnUpZe6NYcz",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 50
+        },
+        "outputId": "05518778-8c22-41c6-d800-e80737c1dcad"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "text=input(\"enter a sentence: \")\n",
+        "for i in text:\n",
+        "  if i.isspace():\n",
+        "    continue\n",
+        "  else:\n",
+        "    print(i.upper(),end=\"\")  \n",
+        "\n",
+        "#Code/Answers below :"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a sentence: This is a sentence\n",
+            "THISISASENTENCE"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZiYh11-qNYzh"
+      },
+      "source": [
+        "<pre>5.) Write a program that counts all the vowels in an inputted string and prints the count and prints all the consonants.\n",
+        "\n",
+        "Eg : Input string : random\n",
+        "\n",
+        "Output :\n",
+        "count of vowels : 2\n",
+        "Consonants : r, n, d, m"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Ar4aP2yWNrrl",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 67
+        },
+        "outputId": "a4686b32-096e-4875-db89-d32430de0b7c"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "text=input('Enter a string: ')\n",
+        "count=0\n",
+        "print(\"consonants: \",end=\"\")\n",
+        "for i in range(len(text)):\n",
+        "  if text[i] in 'aeiou':\n",
+        "      count+=1\n",
+        "  else:\n",
+        "    print(text[i],end=\",\") \n",
+        "print()    \n",
+        "print(f\"count of vowel: {count}\")\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter a string: random\n",
+            "consonants: r,n,d,m,\n",
+            "count of vowel: 2\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0lM4zwJJNsNy"
+      },
+      "source": [
+        "<pre>6.) Write a program that asks the user to enter a string. Print out whether the string contains more capital\n",
+        "A's than capital B's, the same amount, or more capital B's.\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MB4_oec_OK5s",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        },
+        "outputId": "c055c3e2-2432-4c35-a424-aea45d39147d"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "count_A=count_B = 0\n",
+        "z=input(\"enter a string: \")\n",
+        "for i in range(len(z)):\n",
+        "  if z[i]=='A':\n",
+        "    count_A+=1\n",
+        "  elif z[i]==\"B\":\n",
+        "    count_B+=1\n",
+        "  else:\n",
+        "    continue  \n",
+        "print(count_A,count_B)\n",
+        "if count_A >count_B:\n",
+        "  print(\"String contains more As\")\n",
+        "elif count_A <count_B:\n",
+        "  print(\"String contains more Bs\")  \n",
+        "else:\n",
+        "  print(\"Both are same in number\")\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "enter a string: AABBBBACG\n",
+            "3 4\n",
+            "String contains more Bs\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BhFPt_-wOR3C"
+      },
+      "source": [
+        "<hr>\n",
+        "\n",
+        "#  <h1><u><center><b> GROUP-7 (G-7) : </b></center></u></h1>\n",
+        "\n",
+        "\n",
+        "<hr>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "LxGBLN3LOUhG"
+      },
+      "source": [
+        "<pre>1.) Write a code to accept a string from the user and check if the inputted string is a valid password or not.\n",
+        "These are the conditions to check if it's a valid password or not.\n",
+        "\n",
+        " a. Has at least 8 characters in it.\n",
+        " b. At least one of the characters is upper case.\n",
+        " c. At least has two numbers in it.\n",
+        " d. At least has one punctuation mark or symbol in it\n",
+        "\n",
+        " If any of these conditions fail then keep asking it to re-enter the password. \n",
+        "(do not stop the execution of the code until valid password has been entered).\n",
+        "</pre> "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "GEGHAvidPIx7"
+      },
+      "source": [
+        "#Solved by : Rajanna A01\n",
+        " \n",
+        "#Code/Answers below :\n",
+        " \n",
+        "import string\n",
+        " \n",
+        "a = False\n",
+        "while (a== False):\n",
+        "       \n",
+        "        x = input(\"\"\"Enter password : \n",
+        "         a. Has at least 8 characters in it.\n",
+        "         b. At least one of the characters is upper case.\n",
+        "         c. At least has two numbers in it.\n",
+        "         d. At least has one punctuation mark or symbol in it.\"\"\")\n",
+        " \n",
+        "        upper = 0\n",
+        "        num = 0\n",
+        "        special =0\n",
+        "        special_chars = string.punctuation\n",
+        " \n",
+        "        if len(x) >=8:\n",
+        "            for i in x:\n",
+        "                if i.isupper() == True:\n",
+        "                    upper +=1\n",
+        "                elif i.isnumeric() == True:\n",
+        "                    num +=1\n",
+        "                elif i in special_chars:\n",
+        "                    special+=1\n",
+        "            if upper >=1 and num >=2 and special >=1:\n",
+        "                a= True                \n",
+        "                print(\"Your password met the critiria\")\n",
+        "            \n",
+        "            else:\n",
+        "                print(\"Your password didn't meet the critiria\")"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "VO0jVW_SxRAv",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f15cb559-eb11-4364-e200-196c0e2d8cd9"
+      },
+      "source": [
+        "#Alternative suggested by: Gaurav Karki AI01\n",
+        "\n",
+        "#code below:\n",
+        "import re\n",
+        "while True:\n",
+        "    x=input(\"Enter password: \")\n",
+        "    if len(x)>=8:\n",
+        "        if bool(re.search('([A-Z])',x))==True:    \n",
+        "            if bool(re.search('[\\W_]',x.replace(\" \",\"\")))==True:\n",
+        "                if len(re.findall('[0-9]',x))>=2:\n",
+        "                    break\n",
+        "    else:\n",
+        "        print(\"\\nKindly re-enter valid password!\\n\")\n",
+        "print(\"\\nit's a valid password\\n\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter password: dfcgvhjvv\n",
+            "Enter password: gchgchgc\n",
+            "Enter password: DF45@$jjk\n",
+            "\n",
+            "it's a valid password\n",
+            "\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IOxLemTEPJNN"
+      },
+      "source": [
+        "<pre>2.) Write a program that asks the user to enter a string, replaces all the spaces with asterisks, then replaces\n",
+        "every fifth character (starting with index 0) with an exclamation point, and finally concatenates three\n",
+        "copies of that result together. \n",
+        "\n",
+        "EG : Input : this is a test would become\n",
+        "\n",
+        "Output :\n",
+        "!his * !s * a * !est!his * !s * a * !est!his * !s * a * !est."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "XAXwjgp5Q7pw",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "617c5040-f5db-4f66-ed88-bb20a73e20a2"
+      },
+      "source": [
+        "#Solved by : Rajanna A01\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "x = \"this is a test\"\n",
+        "c = ''\n",
+        "for i in range(len(x)):\n",
+        "    \n",
+        "    if i%5 ==0:\n",
+        "        c = c + \"!\"\n",
+        "    elif x[i] ==\" \":\n",
+        "        c = c + \"*\"\n",
+        "    else:\n",
+        "        c = c + x[i]\n",
+        "\n",
+        "print(c*3)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "!his*!s*a*!est!his*!s*a*!est!his*!s*a*!est\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "vARuVod8Q8MT"
+      },
+      "source": [
+        "<pre>3.) Write a program that accepts any string from the user and checks if it is in the following format or not.\n",
+        "\n",
+        "a. Starts with a # symbol.\n",
+        "b. Has either 3 or 6 length only.\n",
+        "c. Has letters from a to f only.\n",
+        "\n",
+        "\n",
+        "EG 1 : Input : #ABC\n",
+        "Output : Valid\n",
+        "\n",
+        "EG 2 : Input : #aBc\n",
+        "Output : Valid\n",
+        "\n",
+        "EG 3 : Input : #aaBB\n",
+        "Output : Not Valid (Has 4 length not 3 or 6.)\n",
+        "\n",
+        "EG 4 : Input : #FFFFFF\n",
+        "Output : Valid\n",
+        "\n",
+        "EG 5 : Input : #GAB\n",
+        "Output : Not Valid (Has letter G)\n",
+        "\n",
+        "EG 6 : Input : #zAb\n",
+        "Output : Not Valid (Has letter z)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ULK98QnbSMLU",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 84
+        },
+        "outputId": "fb25c227-e409-4a34-fe0d-fb109a5ee398"
+      },
+      "source": [
+        "#Solved by : Rajanna A01\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "\n",
+        "\n",
+        "x = input(\"\"\"a. Starts with a # symbol.\n",
+        "b. Has either 3 or 6 length only.\n",
+        "c. Has letters from a to f only. \"\"\")\n",
+        "\n",
+        "cap = \"#ABCDEF\"\n",
+        "small = \"#abcdef\"\n",
+        "counter = 0\n",
+        "\n",
+        "if len(x) == 4 or len(x) == 7: # includes # a special character\n",
+        "        for i in range(len(x)):\n",
+        "            if x[i] in cap or x[i] in small:\n",
+        "                counter += 1             \n",
+        "            else:\n",
+        "                print(\"Not Valid (Has letter %s)\" % x[i])\n",
+        "                \n",
+        "else:\n",
+        "        print(\"Not Valid (Has %d length not 3 or 6.)\" % (len(x)-1))\n",
+        "        \n",
+        "if counter == 4 or counter == 7:\n",
+        "    print(\"Valid\")"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "a. Starts with a # symbol.\n",
+            "b. Has either 3 or 6 length only.\n",
+            "c. Has letters from a to f only. #DEFdef\n",
+            "Valid\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bSkG6JmVSMyy"
+      },
+      "source": [
+        "<pre>4.) Accept two strings from the user. Return a third string as an output which has reversed odd indices character from\n",
+        "the first string and reversed even strings from the second string inputted.\n",
+        "\n",
+        "EG : Input string 1 : Sample\n",
+        "Input string 2 : TEXt\n",
+        "\n",
+        "Output:\n",
+        "lmStE  #(Reversed string for \"Sample\" is \"elpmaS\" odd indices in that is 1,3,5 which has letters l,m,S. \n",
+        "Same logic for second string but for even indices.)\n",
+        "</pre>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4mvNIy5MTBYa",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 72
+        },
+        "outputId": "4eaa9e9b-013e-496e-8a68-5a34c6ce11f3"
+      },
+      "source": [
+        "#Solved by : Taiba Naz\n",
+        "\n",
+        "#Code/Answers below :\n",
+        "str1=input(\"Enter first string: \")\n",
+        "str2=input(\"Enter second string: \")\n",
+        "str1_r=str1[::-1]        #reverse of 1st string\n",
+        "str2_r=str2[::-1]        #reverse of 2nd string\n",
+        "str1_r_odd=str1_r[1::2]\n",
+        "str2_r_even=str2_r[::2]\n",
+        "final_string=str1_r_odd+str2_r_even\n",
+        "final_string\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter first string: Sample\n",
+            "Enter second string: TEXt\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'lmStE'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    }
+  ]
+}
